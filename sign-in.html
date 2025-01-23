@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0b0b0b, #343334);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signin-box {
+            background: rgb(147, 145, 145);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(212, 139, 139, 0.2);
+            width: 100%;
+            max-width: 400px;
+            z-index: 1;
+        }
+        .signin-box h4 a{
+            text-decoration: none;
+            color: #ff3860;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #71b7e6;
+        }
+
+        .error {
+            color: #ff3860;
+            font-size: 12px;
+            height: 15px;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #71b7e6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #5a9ac9;
+        }
+
+        /* Horse animation container */
+        .horse-container {
+            position: fixed;
+            bottom: 0;
+            left: -200px; /* Start outside the viewport */
+            width: 200px;
+            height: 150px;
+            pointer-events: none;
+            z-index: 2;
+            display: none;
+        }
+
+        .horse {
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M90 50c0-22.1-17.9-40-40-40S10 27.9 10 50s17.9 40 40 40 40-17.9 40-40z' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M30 60c0 0 10-10 20-10s20 10 20 10' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            animation: gallop 0.5s steps(4) infinite;
+        }
+
+        /* Ground effect */
+        .ground {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.1);
+            transform-origin: bottom;
+            z-index: 1;
+        }
+
+        @keyframes gallop {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes moveHorse {
+            0% { 
+                left: -200px;
+                transform: scaleX(1);
+            }
+            45% { 
+                left: calc(50% - 100px);
+                transform: scaleX(1);
+            }
+            50% {
+                left: calc(50% - 100px);
+                transform: scaleX(-1);
+            }
+            95% {
+                left: calc(50% - 100px);
+                transform: scaleX(-1);
+            }
+            100% { 
+                left: -200px;
+                transform: scaleX(1);
+            }
+        }
+
+        /* Dust particles */
+        .dust {
+            position: absolute;
+            bottom: 10px;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: dust 1s linear infinite;
+        }
+
+        @keyframes dust {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-50px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .signin-box {
+                padding: 20px;
+            }
+            .horse-container {
+                width: 150px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="signin-box">
+            <h1>Sign In</h1>
+            <h4>here to log out?<a href="sign-up.html">log-out</a></h4>
+            <form id="signinForm" onsubmit="return handleSubmit(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" autocomplete="username">
+                    <div class="error" id="usernameError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password">
+                    <div class="error" id="passwordError"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">Sign In</button>
+            </form>
+        </div>
+        <div class="horse-container" id="horseContainer">
+            <div class="horse"></div>
+        </div>
+        <div class="ground"></div>
+    </div>
+
+    <script>
+        function showError(elementId, message) {
+            document.getElementById(elementId).textContent = message;
+        }
+
+        function clearErrors() {
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+        }
+
+        function createDustParticles() {
+            const horseContainer = document.getElementById('horseContainer');
+            for (let i = 0; i < 5; i++) {
+                const dust = document.createElement('div');
+                dust.className = 'dust';
+                dust.style.left = Math.random() * 200 + 'px';
+                dust.style.animationDelay = Math.random() * 0.5 + 's';
+                horseContainer.appendChild(dust);
+                
+                // Remove dust particle after animation
+                dust.addEventListener('animationend', () => dust.remove());
+            }
+        }
+
+        function playHorseAnimation() {
+            const horseContainer = document.getElementById('horseContainer');
+            horseContainer.style.display = 'block';
+            horseContainer.style.animation = 'moveHorse 4s forwards';
+
+            // Create dust particles during animation
+            const dustInterval = setInterval(createDustParticles, 100);
+
+            // Cleanup after animation
+            setTimeout(() => {
+                horseContainer.style.display = 'none';
+                horseContainer.style.animation = '';
+                clearInterval(dustInterval);
+            }, 4000);
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            clearErrors();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            let isValid = true;
+
+            if (username === '') {
+                showError('usernameError', 'Username is required');
+                isValid = false;
+            }
+
+            if (password === '') {
+                showError('passwordError', 'Password is required');
+                isValid = false;
+            }
+
+            if (isValid) {
+                playHorseAnimation();
+                setTimeout(() => {
+                    alert('Sign in successful!');
+                    document.getElementById('signinForm').reset();
+                }, 2000);
+            }
+
+            return false;
+        }
+
+        // Clear errors when user starts typing
+        document.getElementById('username').addEventListener('input', () => {
+            document.getElementById('usernameError').textContent = '';
+        });
+
+        document.getElementById('password').addEventListener('input', () => {
+            document.getElementById('passwordError').textContent = '';
+        });
+    </script>
+</body>
+</html>

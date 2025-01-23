@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharma-commerce site</title>
+</head>
+<link rel="stylesheet" href="navbar.css">
+<link rel="stylesheet" href="card.css">
+<link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <img src="./public/image/logo.jpg" alt="shashi">
+                </a>
+            </div>
+            <button class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navbar">
+                <ul>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="addtocart.html" class="nav-link add-to-cart-button">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="section-hero">
+            <div class="container-grid grid-two--cols">
+                <div class="section-hero--content">
+                    <p class="hero-subheading"> explore the latest new technology</p>
+                    <h1 class="hero-heading">
+                        your destination for cutting ahead
+                    </h1>
+                    <p class="hero-para">
+                        Tech Sharma is a visionary name in the realm of technology, dedicated to driving innovation and
+                        delivering cutting-edge solutions. With a focus on bridging the gap between creativity and
+                        functionality, Tech Sharma excels in developing high-quality digital products
+                    </p>
+                </div>
+                <div class="section-hero-image">
+                    <figure>
+                        <img width="400px" height="450px"
+                            src="https://imgcdn.stablediffusionweb.com/2024/11/27/bb7829d2-7767-44ef-a6ae-3fe2aebff6cd.jpg"
+                            alt="">
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="section-extra-product">
+        <div class="containers">
+            <div class="div-extra loading">
+                <div class="extra-image extra-laptop">
+                    <img src="https://saudewala.in/cdn/shop/collections/Laptop.jpg?v=1732216115&width=875" alt="Laptop">
+                </div>
+                <div class="extra-text">
+                    <p>new sale</p>
+                    <h3>50% off laptop</h3>
+                    <a href="shopingcart.html" class="show-more">Show more</a>
+                </div>
+            </div>
+            
+            <div class="div-extra loading">
+                <div class="extra-image extra-headphone">
+                    <img src="https://m.media-amazon.com/images/I/31MCV0u8S0L._SX300_SY300_QL70_FMwebp_.jpg" alt="Headphone">
+                </div>
+                <div class="extra-text">
+                    <p>new sale</p>
+                    <h3>40% off headphone</h3>
+                    <a href="shopingcart.html" class="show-more">Show more</a>
+                </div>
+            </div>
+            
+            <div class="div-extra loading">
+                <div class="extra-image extra-mobile">
+                    <img src="https://ikall.in/wp-content/uploads/2023/06/51sJmHfw92L._SL1000_-600x600.jpg" alt="Smartphone">
+                </div>
+                <div class="extra-text">
+                    <p>new sale</p>
+                    <h3>20% off smartphone</h3>
+                    <a href="shopingcart.html" class="show-more">Show more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section policy -->
+    <section class="section-policy">
+        <div class="container-grid">
+            <div class="div-policy">
+                <div class="icons">
+                    <i class="fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="div-policy-text">
+                    <p>world wide policy</p>
+                    <p>order above $100</p>
+                </div>
+            </div>
+
+            <div class="div-policy">
+                <div class="icons">
+                    <i class="fa-solid fa-phone-flip"></i>
+                </div>
+                <div class="div-policy-text">
+                    <p>support</p>
+                    <p>good way to communicate</p>
+                </div>
+            </div>
+
+            <div class="div-policy">
+                <div class="icons">
+                    <i class="fa-regular fa-money-bill-1"></i>
+                </div>
+                <div class="div-policy-text">
+                    <p>money transfer easy for tech product</p>
+                    <p>money back gurantee</p>
+                </div>
+            </div>
+
+            <div class="div-policy">
+                <div class="icons">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="div-policy-text">
+                    <p>easy online support</p>
+                    <p>24/7 custumer service available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- start product sections -->
+    <section class="section-products">
+        <div class="container">
+            <div class="section-comman-heading">Sharma tech company to  provide products </div>
+        </div>
+        <section class="containere">
+            <div id="productcontainer"></div>
+        </section>
+    </section>
+    <!-- start product card section -->
+    <template id="productTemplate">
+        <div class="card" id="cardvalue">
+            <article class="information [card]">
+                <span class="category">computer</span>
+                <div class="imageContainer">
+                    <img class="productImage"
+                        src="" alt="">
+                </div>
+                <h2 class="productName"></h2>
+                <div class="productRating">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="productdescription"></p>
+
+                <div class="productPriceElement">
+                    <p class="productPrice"></p>
+                    <p class="productActuallPrice"></p>
+                </div>
+                <div class="productStockElement">
+                    <p class="productProperty">total stock price:</p>
+                    <p class="productStock"></p>
+                </div>
+
+                <div class="productyQuantityElement">
+                    <p class="productPrice">quantity(piece):</p>
+                    <div class="stockElement">
+                        <button class="cartIncrement">+</button>
+                        <p class="productQuantity">1</p>
+                        <button class="cartDecrement">-</button>
+                    </div>
+                </div>
+                <button class="add-to-cart-button">
+                    <i class="fa-solid fa-cart-shopping"></i>add to Cart
+                </button>
+            </article>
+        </div>
+    </template>
+    <!-- end product card section -->
+    <!-- end product sections -->
+
+    <!-- end section of part -->
+
+    <div class="containerss grid grid-three--cols">
+        <div class="choose-left-div text-align--right">
+            <div class="why-choose--div aos-init aos-animate" data-aos="zoom-in-up" data-aos-delay="0">
+                <p class="common-text--highlight">1</p>
+                <h3 class="section-common--title">Expert Instructors</h3>
+                <p>
+                    Learn from experienced teachers who are passionate about sharing
+                    knowledge and guiding you toward success in your learning journey.
+                </p>
+            </div>
+
+            <div class="why-choose--div aos-init aos-animate" data-aos="zoom-in-up" data-aos-delay="300">
+                <p class="common-text--highlight">3</p>
+                <h3 class="section-common--title">Interactive Lessons</h3>
+                <p>
+                    Engage in hands-on learning experiences that make education fun
+                    and memorable. Interactive lessons encourage active participation
+                    and deeper understanding.
+                </p>
+            </div>
+
+            <div class="why-choose--div aos-init" data-aos="zoom-in-up" data-aos-delay="600">
+                <p class="common-text--highlight">5</p>
+                <h3 class="section-common--title">Lifelong Learning Support</h3>
+                <p>
+                    Our commitment to your education doesn't end with a certificate.
+                    Receive ongoing support and resources for continuous learning and
+                    growth.
+                </p>
+            </div>
+        </div>
+        <div class="choose-center-div aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+            <figure>
+                <img src="./public/image/126183.jpg" alt="Shashi technical home page ">
+            </figure>
+        </div>
+        <div class="choose-right-div">
+            <div class="why-choose--div text-align--left aos-init aos-animate" data-aos="zoom-in-up" data-aos-delay="0">
+                <p class="common-text--highlight">2</p>
+                <h3 class="section-common--title">Lifelong Learning Support</h3>
+                <p>
+                    Our commitment to your education doesn't end with a certificate.
+                    Receive ongoing support and resources for continuous learning and
+                    growth.
+                </p>
+            </div>
+
+            <div class="why-choose--div text-align--left aos-init aos-animate" data-aos="zoom-in-up"
+                data-aos-delay="300">
+                <p class="common-text--highlight">4</p>
+                <h3 class="section-common--title">Lifelong Learning Support</h3>
+                <p>
+                    Our commitment to your education doesn't end with a certificate.
+                    Receive ongoing support and resources for continuous learning and
+                    growth.
+                </p>
+            </div>
+
+            <div class="why-choose--div text-align--left aos-init" data-aos="zoom-in-up" data-aos-delay="600">
+                <p class="common-text--highlight">6</p>
+                <h3 class="section-common--title">Lifelong Learning Support</h3>
+                <p>
+                    Our commitment to your education doesn't end with a certificate.
+                    Receive ongoing support and resources for continuous learning and
+                    growth.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- fotter part of HTML -->
+    <footer>
+        <div class="containere grid-four--cols">
+            <div class="footer-1-div">
+                <div class="logo-brand">
+                    <a href="#" class="footer-subheading">Shashi tech</a>
+                </div>
+                <p>Let's revolutionize the way you study with Sharma tech</p>
+                <div class="footer-social--icons">
+                    <a href="https://discord.com/" target="_blank">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+                    <i class="fa-brands fa-youtube"></i>
+                    <a href="https://www.instagram.com/shashii.sharmaa/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="footer-2-div">
+                <p class="footer-subheading">Popular Courses</p>
+                <ul>
+                    <li><a href="#">Full Stack Development</a></li>
+                    <li><a href="#">Data Science & Analytics</a></li>
+                    <li><a href="#">Cloud Computing (AWS/Azure)</a></li>
+                    <li><a href="#">Artificial Intelligence & ML</a></li>
+                    <li><a href="#">Cybersecurity Expert</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-3-div">
+                <p class="footer-subheading">Tech Solutions</p>
+                <ul>
+                    <li><a href="#">Cloud Services</a></li>
+                    <li><a href="#">AI Solutions</a></li>
+                    <li><a href="#">DevOps Services</a></li>
+                    <li><a href="#">Digital Transformation</a></li>
+                    <li><a href="#">Tech Consulting</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-4-div">
+                <p class="footer-subheading">page visit</p>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="about.html">about us</a></li>
+                    <li><a href="products.html">product</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                    <li><a href="addtocart.html">cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+<script src="footer.js"></script>
+<script src="card.js"></script>
+<script src="navbar.js"></script>
+
+</html>

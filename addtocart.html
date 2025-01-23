@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharma-commerce site</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="stl.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+    <header class="section-navbar">
+        <section class="top_txt">
+            <div class="head-container">
+                <div class="head_txt">
+                    <p>free shiipng for the return and refund if it possible</p>
+                </div>
+                <div class="sing_in_up">
+                    <a href="sign-in.html">sign in</a>
+                    <a href="sign-up.html">sign up</a>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <img src="./public/image/logo.jpg" alt="shashi">
+                </a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav class="navbar">
+                <ul>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">Products </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="addtocart.html" class="nav-link add-to-cart-button">
+                            <i class="fa-solid fa-cart-shopping"> 0 </i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <template id="productCartTemplate">
+        <div class="card" id="cardvalue">
+            <article class="information [card]">
+                <span class="category">computer</span>
+                <div class="imageContainer">
+                    <img class="productImage"
+                        src="./public/image/download (1).webp" alt="">
+                </div>
+                <h2 class="productName">${product.name}</h2>
+                    <p class="productPrice"></p>
+                    <div class="stockElement">
+                        <button class="cartIncrement">+</button>
+                        <p class="productQuantity">1</p>
+                        <button class="cartDecrement">-</button>
+                </div>
+                 <button class="add-to-cart-button">
+                    remove
+                 </button>
+            </article>
+        </div>
+    </template>
+    <section class="addToCartElement">
+        <div class="container">
+            <section>
+                <div id="productCartContainer"></div>
+            </section>
+
+            <section class="productCartTotalElem">
+                <div class="productCartTotalElement">
+                    <p>select offer summary</p>
+                    <div class="productOrderTotal">
+                        <div>
+                            <p>sub total:</p>
+                            <p class="productSubTotal">800</p>
+                        </div>
+                        <div>
+                            <p>tax:</p>
+                            <p class="productTest">50</p>
+                        </div>
+                        <hr />
+                        <div>
+                            <p>final total:</p>
+                            <p class="productFinalTotal">750</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <footer>
+        <div class="containere grid grid-four--cols">
+            <div class="footer-1-div">
+                <div class="logo-brand">
+                    <a href="#" class="footer-subheading">Shashi tech</a>
+                </div>
+                <p>Let's revolutionize the way you study with Sharma tech</p>
+
+                <div class="footer-social--icons">
+                    <a href="https://discord.com/" target="_blank">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+                    <i class="fa-brands fa-youtube"></i>
+                    <a href="https://www.instagram.com/shashii.sharmaa/?next=l%2F" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- footer 2nd div  -->
+            <div class="footer-2-div">
+                <p class="footer-subheading">Courses</p>
+                <ul>
+                    <li><a href="#"> BCA </a></li>
+                    <li><a href="#"> BA </a></li>
+                    <li><a href="#"> B.tech </a></li>
+                    <li><a href="#"> BBA </a></li>
+                </ul>
+            </div>
+
+            <!-- footer 3rd div  -->
+            <div class="footer-3-div">
+                <p class="footer-subheading">Links</p>
+                <ul>
+                    <li><a href="#"> Bca </a></li>
+                    <li><a href="#"> BA</a></li>
+                    <li><a href="#"> B.tech </a></li>
+                    <li><a href="#"> BBA </a></li>
+                </ul>
+            </div>
+
+            <!-- footer 4th div  -->
+            <div class="footer-4-div">
+                <p class="footer-subheading">Links</p>
+                <ul>
+                    <li><a href="#"> Bca </a></li>
+                    <li><a href="#"> BA</a></li>
+                    <li><a href="#"> B.tech</a></li>
+                    <li><a href="#"> BBA</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+<script src="scriptt.js"></script>
+
+</html>

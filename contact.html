@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            padding: 20px;
+        }
+
+        .container-child {
+            background: linear-gradient(135deg,
+                    #e7a517 0%,
+                    #ffffff 50%,
+                    #57e991 100%);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form input:focus {
+            outline: none;
+            border-color: #71b7e6;
+        }
+
+        .error {
+            color: #ff3860;
+            font-size: 12px;
+            height: 15px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .button-group input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"] {
+            background-color: #71b7e6;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5a9ac9;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #e4e4e4;
+        }
+
+        @media (max-width: 480px) {
+            .container-child {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+
+        .sparkle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFD700'%3E%3Cpath d='M12 0l2.832 9.168L24 12l-9.168 2.832L12 24l-2.832-9.168L0 12l9.168-2.832z'/%3E%3C/svg%3E") no-repeat center/contain;
+            animation: sparkle 5s linear forwards;
+            opacity: 0;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1) rotate(180deg);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .map-container {
+            margin-top: 30px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Make the layout responsive */
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .form-section,
+        .map-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .location-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .location-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .location-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            #map {
+                height: 300px;
+            }
+        }
+        .sparkle-container {
+            /* Optimize performance */
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        /* Add cross-browser gradient support */
+        .container {
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            background: -webkit-linear-gradient(135deg, #71b7e6, #9b59b6);
+            background: -moz-linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sparkle-container" id="sparkleContainer"></div>
+    <div class="container">
+        <div class="container-child">
+            <h1>Update Here</h1>
+            <div class="content-wrapper">
+                <!-- Form Section -->
+                <div class="form-section">
+                    <form class="form" id="contactForm" onsubmit="return validateForm(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" name="fullName" id="fullName" placeholder="Enter Full Name">
+                            <div class="error" id="fullNameError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Enter Email">
+                            <div class="error" id="emailError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Enter Password">
+                            <div class="error" id="passwordError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword"
+                                placeholder="Confirm Password">
+                            <div class="error" id="confirmPasswordError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact">Contact Number</label>
+                            <input type="tel" name="contact" id="contact" placeholder="Enter Contact Number">
+                            <div class="error" id="contactError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <input type="text" name="message" id="message" placeholder="Enter Your Message">
+                            <div class="error" id="messageError"></div>
+                        </div>
+
+                        <div class="button-group">
+                            <input type="reset" value="Reset" onclick="clearErrors()">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+                <div class="map-section">
+                    <div class="map-container">
+                        <div id="map"></div>
+                    </div>
+                    <div class="location-info">
+                        <h3>Our Location</h3>
+                        <p><strong>Address:</strong> 123 Business Street, City, Country</p>
+                        <p><strong>Phone:</strong> +1 234 567 8900</p>
+                        <p><strong>Email:</strong> contact@yourcompany.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            clearErrors();
+            let isValid = true;
+
+            // Get all form inputs
+            const fullName = document.getElementById('fullName');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const contact = document.getElementById('contact');
+            const message = document.getElementById('message');
+            
+            // Sanitize inputs
+            const sanitizeInput = (input) => {
+                return input.replace(/[<>/]/g, '');
+            };
+            
+            // Validate Full Name (with maximum length)
+            if (fullName.value.trim() === '' || fullName.value.length > 100) {
+                showError('fullNameError', 'Full name is required and must be less than 100 characters');
+                isValid = false;
+            }
+            
+            // Enhanced email validation
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email.value)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Enhanced password validation
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password.value)) {
+                showError('passwordError', 'Password must contain at least 8 characters, including uppercase, lowercase, number and special character');
+                isValid = false;
+            }
+
+            // Validate Contact Number
+            const contactRegex = /^\d{10}$/;
+            if (!contactRegex.test(contact.value)) {
+                showError('contactError', 'Please enter a valid 10-digit contact number');
+                isValid = false;
+            }
+
+            // Validate Message
+            if (message.value.trim() === '') {
+                showError('messageError', 'Message is required');
+                isValid = false;
+            }
+
+            // Only proceed with sparkle effect and form submission if all validations pass
+            if (isValid) {
+                handleSuccessfulSubmission();
+            }
+
+            return isValid;
+        }
+
+        function handleSuccessfulSubmission() {
+            // First create sparkles
+            createSparkles();
+
+            // Then show success message and reset form after a delay
+            setTimeout(() => {
+                alert('Form submitted successfully!');
+                document.getElementById('contactForm').reset();
+            }, 1000);
+        }
+
+        function showError(elementId, message) {
+            document.getElementById(elementId).textContent = message;
+        }
+
+        function clearErrors() {
+            const errorElements = document.getElementsByClassName('error');
+            for (let element of errorElements) {
+                element.textContent = '';
+            }
+        }
+
+        function createSparkles() {
+            const container = document.getElementById('sparkleContainer');
+            container.style.display = 'block';
+            container.innerHTML = ''; // Clear existing sparkles
+
+            // Create multiple sparkles
+            for (let i = 0; i < 50; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+
+                // Random position
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+
+                // Random delay
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+
+                container.appendChild(sparkle);
+            }
+
+            // Remove sparkles after animation
+            setTimeout(() => {
+                container.style.display = 'none';
+            }, 10000);
+        }
+
+        // Add real-time validation for better user experience
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input');
+
+            inputs.forEach(input => {
+                input.addEventListener('input', function () {
+                    // Clear the error message when user starts typing
+                    const errorElement = document.getElementById(input.id + 'Error');
+                    if (errorElement) {
+                        errorElement.textContent = '';
+                    }
+                });
+            });
+        });
+        function initMap() {
+            const location = { lat: 40.7128, lng: -74.0060 }; // Default to New York coordinates
+            
+            try {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 15,
+                    center: location,
+                    mapTypeControl: true,
+                    streetViewControl: true,
+                    fullscreenControl: true
+                });
+                
+                new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: "Our Location"
+                });
+                
+                // Add map responsiveness
+                google.maps.event.addDomListener(window, 'resize', function() {
+                    map.setCenter(location);
+                });
+            } catch (error) {
+                handleMapError();
+            }
+        }
+    </script>
+    <!-- Load Google Maps API -->
+    <script async defer
+    src="https://www.gomaps.pro/geolocation/v1/geolocate?key=<API Key>"
+    onerror="handleMapError()">
+</script>
+</body>
+</html>

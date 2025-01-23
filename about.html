@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background: linear-gradient(135deg, 
+                #e0f7ff 0%, 
+                #87ceeb 50%, 
+                #b0e0e6 100%
+            ); 
+        }
+        .about-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 15px;
+            border-radius: 15px;
+            /* Adding gradient background */
+            background: linear-gradient(135deg, 
+                #e0f7ff 0%, 
+                #87ceeb 50%, 
+                #b0e0e6 100%
+            );
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-header h1 {
+            color: #1a365d;
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .about-header p {
+            color: #2c5282;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 500;
+        }
+
+        /* Rest of your previous styles... */
+
+        @media (max-width: 768px) {
+            .about-header {
+                padding: 30px 15px;
+                margin: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-header {
+                padding: 25px 10px;
+                margin: 10px;
+            }
+        }
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-height: 300px;
+            background: #f7fafc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .about-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-card h3 {
+            color: #2d3748;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .stat-item {
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #4299e1;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #4a5568;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+            }
+
+            .about-section {
+                padding: 60px 40px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .about-content {
+                text-align: center;
+            }
+
+            .about-image {
+                min-height: 200px;
+            }
+
+            .about-card {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-section {
+                padding: 30px 15px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .sections-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #1e3c72;
+        }
+
+        .section ul {
+            list-style-type: none;
+        }
+
+        .section li {
+            padding: 0.5rem 0;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .section li:hover {
+            color: #1e3c72;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .sections-container {
+                padding: 1rem;
+                flex-direction: column;
+            }
+
+            .section {
+                min-width: 100%;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="about-section">
+        <div class="about-header">
+            <h1>About Shashi Tech</h1>
+            <p>Innovating Tomorrow's Solutions Today</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-image">
+                <img src="./public/image/126407.jpg" alt="Shashi Tech Office">
+            </div>
+            <div class="about-text">
+                <p>Shashi Tech is a leading product-based technology company committed to delivering innovative solutions that transform businesses. With our cutting-edge products and dedicated team, we help organizations achieve their digital transformation goals.</p>
+            </div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Our Mission</h3>
+                <p>To deliver exceptional technology solutions that empower businesses to thrive in the digital age, focusing on innovation, quality, and customer satisfaction.</p>
+            </div>
+
+            <div class="about-card">
+                <h3>Our Vision</h3>
+                <p>To be the global leader in creating transformative technology solutions that shape the future of digital innovation and business success.</p>
+            </div>
+
+            <div class="about-card">
+                <h3>Our Values</h3>
+                <p>Innovation, integrity, excellence, and customer-centricity are the core values that drive our team and shape our company culture.</p>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-count="10">0</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="500">0</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="100">0</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+        </div>
+    </section>
+
+   <header class="header">
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <h1>Shashi Tech</h1>
+        <p>Let's revolutionize the way you study with Shashi Tech</p>
+    </header>
+
+    <div class="sections-container">
+        <section class="section">
+            <h2>Courses</h2>
+            <ul>
+                <li>BCA</li>
+                <li>B.TECH</li>
+                <li>BBA</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Institute</h2>
+            <ul>
+                <li>IIERT</li>
+                <li>PRATIMA</li>
+                <li>PIRUL</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Affiliate</h2>
+            <ul>
+                <li>Amazon</li>
+                <li>Flipkart</li>
+                <li>Syndom</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stat = entry.target;
+                        const target = parseInt(stat.getAttribute('data-count'));
+                        let current = 0;
+                        const increment = target / 50;
+                        
+                        const updateCount = () => {
+                            if (current < target) {
+                                current += increment;
+                                stat.textContent = Math.round(current);
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                stat.textContent = target;
+                            }
+                        };
+                        
+                        updateCount();
+                        observer.unobserve(stat);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, {
+                threshold: 0.5
+            });
+
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const sectionsContainer = document.querySelector('.sections-container');
+            let isMenuVisible = true;
+
+            navToggle.addEventListener('click', function() {
+                isMenuVisible = !isMenuVisible;
+                sectionsContainer.style.display = isMenuVisible ? 'flex' : 'none';
+            });
+
+            // Responsive handling
+            function handleResize() {
+                if (window.innerWidth > 768) {
+                    sectionsContainer.style.display = 'flex';
+                    isMenuVisible = true;
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+
+            // Add smooth scroll animation for better UX
+            document.querySelectorAll('li').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', animateStats);
+
+    </script>
+</body>
+</html>
