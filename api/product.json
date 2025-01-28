@@ -1,0 +1,62 @@
+[
+    {
+      "id":1,
+      "name":"computer",
+      "category":"computer",
+      "brand":"insporen",
+      "price":999,
+      "stock":50,
+      "description":"theRyzen2000 series, is a lineup of high-performance processors built on the Zen+ architecture with a 12nm process, offering improved efficiency",
+      "image":"./public/image/download.webp"
+    },
+    {
+      "id":2,
+      "name":"watch",
+      "category":"watch",
+      "brand":"delta",
+      "price":499,
+      "stock":500,
+      "description":"A watch is a timekeeping device worn on the wrist or carried, combining style, functionality, and precision to track time.",
+      "image":"./public/image/download.jpg"
+    },
+    {
+      "id":3,
+      "name":"wireless headphone",
+      "category":"headphone",
+      "brand":"bolt",
+      "price":569,
+      "stock":470,
+      "description":"boAt offers a variety of wireless headphones that cater to different preferences and budgets.",
+      "image":"./public/image/images.jpg"
+    },
+    {
+        "id":4,
+        "name":"speaker",
+        "category":"base",
+        "brand":"boat",
+        "price":1000,
+        "stock":20,
+        "description":" factors such as power output, frequency response, portability, and compatibility with your existing audio setup to ensure",
+        "image":"./public/image/downloads.jpg"
+    },
+    {
+        "id":5,
+        "name":"telivision",
+        "category":"video",
+        "brand":"sony",
+        "price":700,
+        "stock":200,
+        "description":"become an integral part of households worldwide. Television offers a variety of content, including news, movies, music, and educational programs",
+        "image":"./public/image/download (1).webp"   
+    },
+    {
+        "id":6,
+        "name":"mobile",
+        "category":"phnoe",
+        "brand":"apple",
+        "price":780,
+        "stock":120,
+        "description":"Both models are powered by the A18 processor and include new Action and Camera Control buttons.",
+        "image":"./public/image/downloadss.jpg"  
+    }
+]
